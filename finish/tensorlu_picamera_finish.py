@@ -31,7 +31,8 @@ exploration_mode = False
 exploration_counter = 0
 
 # Şekil tanıma modeli ve kategoriler
-model = tf.keras.models.load_model("shape_model_final1.h5")
+model = tf.keras.models.load_model("shape_model_final1.h5", compile=False)
+
 categories = ['circle', 'hexagon', 'parallelogram', 'pentagon', 'rectangle', 'rhombus', 'square', 'triangle']
 
 # Joystick değerlerini ölçekle
