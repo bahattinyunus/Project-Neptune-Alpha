@@ -31,7 +31,7 @@ exploration_mode = False
 exploration_counter = 0
 
 # Şekil tanıma modeli ve kategoriler
-model = tf.keras.models.load_model("shape_model_final1.h5", compile=False)
+model = tf.keras.models.load_model("best_shape_model.keras", compile=False)
 
 categories = ['circle', 'hexagon', 'parallelogram', 'pentagon', 'rectangle', 'rhombus', 'square', 'triangle']
 
