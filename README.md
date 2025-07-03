@@ -1,32 +1,69 @@
-# Raspberry Pi Üzerinde TensorFlow Sanal Ortam Kullanımı 🚀🐍
+# 🚀 ROV Projesi – Raspberry Pi  Kurulumu
 
-Selam!  
-Bu dosya, Raspberry Pi’nda TensorFlow projeni nasıl *güvenli* ve *derli toplu* bir şekilde çalıştırabileceğini anlatıyor. Özetle, Python paketlerini sistemden bağımsız, kafanı karıştırmadan yönetmek için “sanala ortam” kurup açıp kapatmayı öğreneceksin.
 
----
+## 🛠️ 1. Arduino IDE Kurulumu (Raspberry Pi)
 
-## Neden Sanal Ortam? 🤔
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install arduino -y
+```
+## 🗃️ 2. Deneyap Kart Tanımını Ekleme
 
-E hadi, şu soruyu mutlaka sordun:  
-**“Abi neden direkt `pip install tensorflow` demiyorum da sanal ortamla uğraşıyorum?”**  
-Cevap:  
-Sistem Python’unu direkt bozmak **çok tehlikeli** olabilir. Paket sürümleri çatışabilir, projeler birbirine bulaşabilir, Linux güncellemeleri ile çatışmalar yaşanabilir vs vs.  
-Sanal ortam tam da bu karmaşayı önlemek için var.  
-Her proje kendi kafasına göre bağımlılıklarını tutar, sistemdeki başka projelere zarar vermez.  
-“Projenin kopyası gibi” düşünebilirsin.
+Arduino IDE > `File > Preferences` menüsüne gidin.
 
----
+**Additional Board Manager URLs** alanına aşağıdaki linki yapıştırın:
 
-## Başlamadan Önce ⚠️
-
-- Python 3.11 Raspberry Pi’nda yüklü olmalı (ve sen zaten bunu kontrol ettin, süper!)  
-- Terminal (SSH veya doğrudan Pi ekranı) kullanabiliyor olmalısın  
-- VS Code kurulu ve çalışır durumda olmalı
+```
+https://raw.githubusercontent.com/deneyapkart/deneyapkart-arduino-core/master/package_deneyapkart_index.json
+```
 
 ---
 
-## 1. Proje Klasörüne Git veya Oluştur
+## 🛋️ 3. Deneyap Kart'ı Kurma
 
+1. Tools > Board > Boards Manager menüsüne girin
+2. "Deneyap" aratın
+3. "Deneyap Kart" paketini seçin ve **Install** butonuna tıklayın
+
+> Kurulumdan sonra Tools > Board menüsünden kullandığınız kart modelini seçin:
+>
+> - Deneyap Kart v2
+> - Deneyap Mini
+> - Deneyap Geliştirme Kartı
+
+---
+
+## 🤜 7. ESP32 + Servo Kurulumu
+
+
+### ESP32 Kart Kurulumu:
+
+- Tools > Board > Boards Manager > "esp32" ara
+
+
+### ESP32Servo Kütüphanesi:
+
+- Sketch > Include Library > Manage Libraries...
+- "ESP32Servo" arat ve yükle
+
+Bu projenin çalışması için aşağıdaki Python paketlerinin kurulması gerekmektedir:
+
+- picamera2
+- opencv-python
+- numpy
+- pyserial
+sudo apt install python3 python3-pip -y
+
+sudo apt install libatlas-base-dev libjpeg-dev libtiff5-dev libjasper-dev libpng-dev -y
+sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
+sudo apt install libxvidcore-dev libx264-dev -y
+sudo apt install python3-dev python3-numpy -y
+sudo apt install python3-numpy python3-serial python3-opencv
+
+sudo apt install -y python3-picamera2
+
+
+# - tensorflow
 Terminalde şöyle yap:
 
 ```bash
@@ -43,35 +80,5 @@ source rov-venv/bin/activate
 
 pip install --upgrade pip setuptools wheel
 pip install tensorflow
-
-
-
 SANAL ORTAMDAN ÇIK
 deactivate
-
-
-
-
-# Proje Adı: Kamera ve ESP32 Kontrollü Şekil Tanıma ve Çizgi Takip Robotu
-
-## Gereksinimler
-
-Bu projenin çalışması için aşağıdaki Python paketlerinin kurulması gerekmektedir:
-
-- picamera2
-- opencv-python
-- numpy
-- pyserial
-- tensorflow
-
-## Kurulum
-
-1. Sanal ortam oluşturun (opsiyonel ama tavsiye edilir):
-
-```bash
-python3 -m venv venv
-source venv/bin/activate     # Linux/Mac
-venv\Scripts\activate        # Windows
-
-2. gerekli paketler
-pip install picamera2 opencv-python numpy pyserial tensorflow
