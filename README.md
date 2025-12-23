@@ -82,3 +82,4 @@ pip install --upgrade pip setuptools wheel
 pip install tensorflow
 SANAL ORTAMDAN ÇIK
 deactivate
+.
