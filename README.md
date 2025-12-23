@@ -1,101 +1,84 @@
-![ROV Elite Banner](./banner.png)
+![Neptune Alpha Banner](./banner.png)
 
-# 🌊 ROV TACTICAL COMMAND CENTER: ALPHA PROTOCOL
+# 🔱 PROJECT NEPTUNE ALPHA: CYBERNETIC COMMAND CENTER
 
 ```text
 [SYSTEM INITIALIZATION]
-> Kernel Loading... OK
-> Edge AI Models Synchronized... OK
-> UART Link Established (Pi <-> Deneyap)... OK
-> ROV Status: OPERATIONAL - READY FOR DEPLOYMENT
+> Kernel Loading.......................... [OK]
+> Neural Network Synchronization.......... [OK]
+> Strategic Manifesto Loaded.............. [OK]
+> Integrated Architecture Established..... [OK]
 --------------------------------------------------
-ID: ALPHA-01-ROV
-CLASS: DEEP-SEA INTELLIGENCE PLATFORM
-STATUS: TIER 1 - MISSION READY
+ID: NEPTUNE-ALPHA-PROJECT
+STATUS: TRANSCENDENTAL - MISSION READY
 ```
 
 ---
 
-## 🛰️ Sistem Mimarisi (Digital Command Panel)
+## 🏗️ Stratejik Temeller (Visionary Foundation)
 
-Aşağıdaki HUD (Heads-Up Display) şeması, platformun otonom karar verme ve sensör füzyon mimarisini temsil eder.
+Bu platform, sadece bir eğitim reposu değil, sualtı otonom sistemler için bir **Teknoloji Doktrini**dir.
+
+| 📜 [Manifesto](_MANIFESTO/STRATEGIC_VISION.md) | 🏗️ [Mimari](ARCHITECTURE.md) | ⚖️ [Etik](_MANIFESTO/ETHICS_PROTOCOLS.md) | 🗺️ [Harita](SUMMARY.md) |
+| :---: | :---: | :---: | :---: |
+
+---
+
+## 🛰️ Sistem Mimarisi (Digital Control HUD)
 
 ```mermaid
 graph TD
     %% Base Nodes
-    A["📷 PiCamera2 (Raw Data)"]
-    B{"🧠 Edge AI (TensorFlow Lite)"}
-    C["🎯 Görev Mantığı (Priority 1)"]
-    D["🛣️ Navigasyon Katmanı"]
-    E["📡 Karar Mekanizması"]
-    F["⚡ UART Communication"]
-    G["🕹️ Deneyap Kart (Motor Driver)"]
-    H["🔌 Sensör Füzyonu (IMU/Mesafe)"]
-    I["🔱 ROV Motor Cluster (8x)"]
+    A["📷 Perception Layer"]
+    B{"🧠 Entegre Beyin (AI)"}
+    C["🎯 Stratejik Karar"]
+    D["🗺️ Navigasyon Map"]
+    E["📡 Command Link"]
+    F["🕹️ Actuator Driver"]
+    G["🔱 Thruster Matrix (8x)"]
 
     %% Connections
     A --> B
-    B -- "Nesne Tespiti" --> C
-    B -- "Çizgi Analizi" --> D
+    B -- "Object Detection" --> C
+    B -- "Path Discovery" --> D
     C --> E
     D --> E
     E --> F
     F --> G
-    H --> G
-    G --> I
 
-    %% Elite Styling
-    style A fill:#001a33,stroke:#00ccff,stroke-width:3px,color:#fff
-    style B fill:#330000,stroke:#ff3300,stroke-width:4px,color:#fff
-    style G fill:#003300,stroke:#00ff00,stroke-width:3px,color:#fff
-    style E fill:#333300,stroke:#ffff00,stroke-width:3px,color:#fff
-    style I fill:#1a1a1a,stroke:#cccccc,stroke-width:2px,color:#fff
+    %% Digital Styling
+    style A fill:#001a33,stroke:#00ccff,stroke-width:2px,color:#fff
+    style B fill:#330000,stroke:#ff3300,stroke-width:3px,color:#fff
+    style G fill:#003300,stroke:#00ff00,stroke-width:2px,color:#fff
+    style C fill:#333300,stroke:#ffff00,stroke-width:2px,color:#fff
     
-    linkStyle 0,1,2,3,4,5,6,7,8 stroke:#00ccff,stroke-width:2px;
+    linkStyle 0,1,2,3,4,5,6 stroke:#00ccff,stroke-width:1px;
 ```
 
 ---
 
-## 🗺️ Operasyonel Doktrinler (Eğitim Serisi)
+## 🗺️ Operasyonel Doktrinler
 
-Bu platform, sadece bir robot değil, sualtında otonom varlık göstermeniz için bir **Mühendislik Kılavuzu**dur.
+### 🎓 [Eğitim Serisi (Modules)](SUMMARY.md#eğitim-modülleri)
+Yazılımsal ve donanımsal temelleri kapsayan adım adım müfredat.
 
-### 🛠️ [MODÜL 00: STRATEJİK HAZIRLIK](./00_Kurulum_ve_Hazirlik)
-> *Sistem temelleri ve izolasyon protokolleri.*
-
-### 🔌 [MODÜL 01: SENSÖR & AKTÜATÖR KATMANI](./01_Temel_Donanim_Kontrol)
-> *Gerçek zamanlı düşük gecikmeli donanım kontrolü.*
-
-### 👁️ [MODÜL 02: VİZYONER ZEKA](./02_Goruntu_Isleme_ve_AI)
-> *Edge AI ve OpenCV ile sualtı algı sistemleri.*
-
-### 🎯 [MODÜL 03: OTONOM GÖREV SETLERİ](./03_Gorev_Algoritmalari)
-> *Arama-tarama ve otonom hedef imha algoritmaları.*
-
-### ⚓ [MODÜL 04: TOTAL ENTEGRASYON](./04_Final_Entegrasyon)
-> *Alpha sürüm: Tam otonom final kodları.*
+### 🛡️ [Mühendislik Protokollari (Advanced)](SUMMARY.md#teknik-protokoller)
+*   🌡️ [Termal Stres Testi](PROTOCOLS/THERMAL_STRESS_TEST.md)
+*   🧠 [Edge AI Optimizasyonu](PROTOCOLS/EDGE_AI_OPTIMIZATION.md)
 
 ---
 
-## 🛡️ Teknik Spesifikasyonlar
+## 📊 Teknolojik Ekosistem
 
-![Tech Badges](https://img.shields.io/badge/Tech-TensorFlow_Lite-orange?style=for-the-badge&logo=tensorflow)
-![Tech Badges](https://img.shields.io/badge/Tech-OpenCV-green?style=for-the-badge&logo=opencv)
-![Tech Badges](https://img.shields.io/badge/Tech-Raspberry_Pi-red?style=for-the-badge&logo=raspberry-pi)
-![Tech Badges](https://img.shields.io/badge/Tech-ESP32_Deneyap-blue?style=for-the-badge)
-
-| Özellik | Detay | Protokol |
-| :--- | :--- | :--- |
-| **Gecikme** | < 50ms (AI Inference) | TF-Lite |
-| **Kontrol** | PID Loop (4-Axis) | Real-time |
-| **Enerji** | Fail-Safe Protection | Active |
-| **Görüş** | Night-Vision Logic | OpenCV |
+![Badges](https://img.shields.io/badge/System-Transcendental-blueviolet?style=for-the-badge)
+![Badges](https://img.shields.io/badge/Status-Project_Neptune-00ccff?style=for-the-badge)
+![Badges](https://img.shields.io/badge/Build-Alpha_2.0-brightgreen?style=for-the-badge)
 
 ---
 
-> [!CAUTION]
-> **OPR-STATUS:** Bu repo "Extreme" seviyede teknik içerik barındırır. Dokümantasyonu sırasıyla takip etmemek sistem instabilitesine yol açabilir.
+> [!IMPORTANT]
+> **PROJE NOTU:** Bu sistem, kısıtlı donanımları algoritmik derinlikle birleştirerek sualtı keşiflerinde yeni bir standart belirlemek üzere tasarlanmıştır.
 
 ---
 
-[Elite Arşivi](./_ARCHIVE) | [Sistem Logları](./04_Final_Entegrasyon) | [Geliştirici: Bahattin Yunus]
+[Geliştirici Dokümantasyonu](ARCHITECTURE.md) | [Sistem Logları](_ARCHIVE/) | [Sürüm: v3.0-Transcendental]
