@@ -1,54 +1,73 @@
-# 🌊 ROV Eğitim Serisi: Raspberry Pi & Deneyap Akademi
+# 🌊 ROV TACTICAL COMMAND CENTER
 
-![ROV Banner](https://img.shields.io/badge/Project-ROV_Training-blue?style=for-the-badge&logo=raspberry-pi)
-![Status](https://img.shields.io/badge/Status-In_Progress-orange?style=for-the-badge)
-![Target](https://img.shields.io/badge/Target-Robotics_Enthusiasts-green?style=for-the-badge)
-
-Bu depo, bir Sualtı Gözlem Aracı (ROV) geliştirmek için gereken tüm yazılımsal ve donanımsal adımları içeren kapsamlı bir eğitim serisidir. Raspberry Pi ana kontrolcü ve Deneyap Kart motor sürücü katmanı olarak kullanılmıştır.
+> [!IMPORTANT]
+> **Sistem Durumu:** ALPHA TEMSİLİYETİ - TÜM SİSTEMLER OPERASYONEL
+> **Sınıflandırma:** Üst Düzey Sualtı Robotik ve Yapay Zeka Entegrasyon Platformu
 
 ---
 
-## 🗺️ Eğitim Yol Haritası
+## 🛰️ Sistem Mimarisi (Digital Command Panel)
 
-Aşağıdaki modülleri sırasıyla takip ederek kendi ROV sisteminizi kurabilir ve yapay zeka ile güçlendirebilirsiniz.
+Aşağıdaki şema, Raspberry Pi ve Deneyap Kart arasındaki stratejik veri akışını ve otonom karar verme mekanizmasını temsil eder.
 
-### 🛠️ [Modül 00: Kurulum ve Hazırlık](file:///c:/github%20repolar%C4%B1m/rov/00_Kurulum_ve_Hazirlik)
-- Raspberry Pi işletim sistemi kurulumu.
-- Arduino IDE ve Deneyap Kart paket tanımları.
-- Python sanal ortam (venv) yapılandırması.
-
-### 🔌 [Modül 01: Temel Donanım Kontrol](file:///c:/github%20repolar%C4%B1m/rov/01_Temel_Donanim_Kontrol)
-- Deneyap Kart ile motor sürücü kontrolü.
-- Sensör verilerinin (Mesafe, IMU vb.) okunması.
-- Manuel kontrol (Joystick) algoritmaları.
-
-### 👁️ [Modül 02: Görüntü İşleme ve AI](file:///c:/github%20repolar%C4%B1m/rov/02_Goruntu_Isleme_ve_AI)
-- OpenCV ile nesne ve çizgi tespiti.
-- TensorFlow Lite modellerinin Raspberry Pi üzerinde çalıştırılması.
-- Şekil tanıma algoritmaları.
-
-### 🎯 [Modül 03: Görev Algoritmaları](file:///c:/github%20repolar%C4%B1m/rov/03_Gorev_Algoritmalari)
-- PID Kontrol sistemleri.
-- "Kayıp Hazine" otonom arama görevi.
-- Haritalama ve mesafe takibi.
-
-### ⚓ [Modül 04: Final Entegrasyon](file:///c:/github%20repolar%C4%B1m/rov/04_Final_Entegrasyon)
-- Tüm sistemlerin birleşimi.
-- Tam fonksiyonel otonom/manuel ROV kontrol kodu.
+```mermaid
+graph TD
+    A["📷 PiCamera2 (Raw Data)"] --> B{"🧠 Edge AI (TensorFlow Lite)"}
+    B -- "Şekil Tespit Edildi" --> C["🎯 Görev Mantığı (Priority 1)"]
+    B -- "Çizgi Takibi" --> D["🛣️ Navigasyon Katmanı"]
+    
+    C --> E["📡 Karar Mekanizması"]
+    D --> E
+    
+    E --> F["⚡ UART Communication"]
+    F --> G["🕹️ Deneyap Kart (Motor Driver)"]
+    
+    H["🔌 Sensör Füzyonu (IMU/Mesafe)"] --> G
+    G --> I["🔱 ROV Motor Cluster (8x)"]
+    
+    style A fill:#003366,stroke:#00ccff,stroke-width:2px,color:#fff
+    style B fill:#660000,stroke:#ff3300,stroke-width:2px,color:#fff
+    style G fill:#004d00,stroke:#00ff00,stroke-width:2px,color:#fff
+    style E fill:#4d4d00,stroke:#ffff00,stroke-width:2px,color:#000
+```
 
 ---
 
-## 🚀 Başlangıç
+## 🗺️ Operasyonel Modüller
 
-Eğitime başlamak için [Modül 00](file:///c:/github%20repolar%C4%B1m/rov/00_Kurulum_ve_Hazirlik) dizinine gidin ve kurulum talimatlarını takip edin.
+Bu platform, sualtı görevlerini en zorlu koşullarda dahi başarıyla icra etmek üzere modüler bir doktrin üzerine inşa edilmiştir.
+
+### 🛠️ [MODÜL 00: STRATEJİK HAZIRLIK](file:///c:/github%20repolar%C4%B1m/rov/00_Kurulum_ve_Hazirlik)
+*Sistem kurulumu, çevre değişkenleri ve venv izolasyon protokolleri.*
+
+### 🔌 [MODÜL 01: AKTÜATÖR VE SENSÖR KATMANI](file:///c:/github%20repolar%C4%B1m/rov/01_Temel_Donanim_Kontrol)
+*Düşük gecikmeli motor kontrolü ve gerçek zamanlı telemetri verileri.*
+
+### 👁️ [MODÜL 02: VIZYONER ZEKA (EDGE AI)](file:///c:/github%20repolar%C4%B1m/rov/02_Goruntu_Isleme_ve_AI)
+*OpenCV ve TensorFlow ile sualtında yüksek başarımlı nesne tespiti.*
+
+### 🎯 [MODÜL 03: OTONOM GÖREV PROTOKOLLERİ](file:///c:/github%20repolar%C4%B1m/rov/03_Gorev_Algoritmalari)
+*Karmaşık senaryolar için otonom sürüş ve hedef odaklı algoritmalar.*
+
+### ⚓ [MODÜL 04: TOTAL ENTEGRASYON](file:///c:/github%20repolar%C4%B1m/rov/04_Final_Entegrasyon)
+*Tüm sistemlerin tek bir 'Master Loop' altında toplandığı final sürümü.*
 
 ---
 
-## 🤝 Katkıda Bulunma
+## 🛡️ Teknik Protokoller ve Standartlar
 
-Bu proje bir eğitim materyalidir. Geliştirmeleriniz veya hata düzeltmeleriniz için Pull Request gönderebilirsiniz.
+| Protokol | Standart | Durum |
+| :--- | :--- | :--- |
+| **Görüntü İşleme** | OpenCV 4.x / TF Lite | Optimize Edildi |
+| **Haberleşme** | UART / I2C | High-Speed |
+| **Kontrol** | PID Stabilization | Aktif |
+| **Dayanıklılık** | MIL-STD-810G (Teorik) | Planlanıyor |
 
 ---
 
-> [!TIP]
-> **Proje Notu:** Bu projede kullanılan teknikler, sualtı robotik yarışmaları (TEKNOFEST vb.) için temel teşkil etmektedir.
+> [!CAUTION]
+> **Uyan:** Sualtı operasyonlarında sızdırmazlık testi yapılmadan donanım enerjilendirilmemelidir. 'Fail-Safe' kod bloklarının çalıştığından emin olun.
+
+---
+
+[Elite Geliştirici Kılavuzu](file:///c:/github%20repolar%C4%B1m/rov/_ARCHIVE) | [Hata Bildirimi](#) | [Sürüm: v2.0-Elite]

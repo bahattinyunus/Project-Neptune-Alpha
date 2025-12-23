@@ -1,18 +1,20 @@
-# 🎯 Modül 03: Görev Algoritmaları
+# 🎯 OTONOM GÖREV PROTOKOLLERİ
 
-Bu modül, ROV'un belirli görevleri (Kayıp Hazine, Otonom Arama vb.) yerine getirmek için kullandığı üst düzey mantık algoritmalarını içerir.
+> [!WARNING]
+> Bu modül, yüksek riskli operasyonel görevleri (Arama-Kurtarma, Tespit) icra eden algoritma setlerini barındırır.
 
-## 📂 İçerik
+## 🏆 Görev Akış Diyagramı
 
-- `demo1.py`, `demo2.py`, `demo3.py`: Otonom görevlerin farklı aşamalarını test eden demo scriptleri.
-- `kayip_hazine/`: Kayıp hazine görevi için özelleşmiş alt modül ve testler.
-
-## 🏆 Kayıp Hazine Görevi
-Bu görevde ROV, su altındaki belirli işaretçileri (marker) tanımalı ve hedefe otonom olarak ulaşmalıdır. Başarılı bir görev için:
-1. Görüntü işleme ile hedef tespiti.
-2. Mesafe sensörleri ile engel tespiti.
-3. PID ile hassas konumlandırma.
+```mermaid
+graph LR
+    A["🏁 Görev Başlat"] --> B["🔎 Alan Tarama"]
+    B --> C{"💎 Hedef Tespit?"}
+    C -- "Hayır" --> B
+    C -- "Evet" --> D["📍 Konum Sabitleme (PID)"]
+    D --> E["📸 Veri Kaydı / Operasyon"]
+    E --> F["⚓ Üsse Dönüş"]
+```
 
 ---
 
-[⬅️ Ana Sayfaya Dön](file:///c:/github%20repolar%C4%B1m/rov/README.md)
+[⬅️ Komuta Merkezine Dön](file:///c:/github%20repolar%C4%B1m/rov/README.md)

@@ -1,31 +1,27 @@
-# 👁️ Modül 02: Görüntü İşleme ve AI
+# 👁️ VİZYONER ZEKA: EDGE AI ENTEGRASYONU
 
-Bu modül, Raspberry Pi kamerasını kullanarak ROV'un çevresini algılamasını sağlayan algoritmaları içerir. 
+> [!TIP]
+> Görüntü işleme katmanı, sualtı görevlerinde otonom kararların alındığı 'Göz' birimidir.
 
-## 🧠 Temel Kavramlar
+## 🧠 Karar Verme Algoritması
 
-ROV sistemimizde iki ana görüntü işleme yöntemi kullanılmaktadır:
-1. **OpenCV:** Geleneksel görüntü işleme (Renk takibi, Şekil algılama, Kenar belirleme).
-2. **TensorFlow Lite:** Yapay zeka tabanlı nesne tespiti (Şekil sınıflandırma).
-
-## 📂 İçerik ve Önemli Dosyalar
-
-- `shape_model_final1.h5`: Eğitilmiş TensorFlow modeli (Şekilleri tanımak için).
-- `cizgi_takip_ve_manuelsurus_rpi.py`: Hem manuel sürüş hem de otonom çizgi takibi sağlayan ana script.
-- `tekthreadlikod_opencv_tensorflow_sekil_tanima_cizgi_takip.py`: Tek bir iş parçacığında çalışan entegre AI kodu.
-- `Threadlikod_paralel_sekil_tanima_ve_cizgi_takip.py`: Performans optimizasyonu için paralel işleme kullanan kod (Önerilen).
-
----
-
-## 🚀 Çalıştırma
-
-Kodları çalıştırmadan önce `Modül 00` içerisindeki Python sanal ortamının aktif olduğundan ve gerekli kütüphanelerin (opencv, tensorflow, numpy) kurulu olduğundan emin olun.
-
-```bash
-# Örnek çalıştırma
-python Threadlikod_paralel_sekil_tanima_ve_cizgi_takip.py
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Scanning: Search Pattern Activated
+    Scanning --> Detection: Object Identified
+    Detection --> Classification: TF Lite Inference
+    Classification --> Tracking: Shape Matched
+    Tracking --> Action: Send Move Command
+    Action --> Scanning: Mission Continues
 ```
 
+## 📑 Öne Çıkan Protokoller
+
+- **Paralel İşleme:** `paralel_sekil_cizgi_takip.py` ile gecikmesiz veri analizi.
+- **TF Lite Modeli:** `shape_model_final1.h5` - Sualtı ışık koşullarına göre optimize edilmiş.
+- **Hibrit Takip:** Hem çizgi (OpenCV) hem nesne (TensorFlow) eşzamanlı takibi.
+
 ---
 
-[⬅️ Ana Sayfaya Dön](file:///c:/github%20repolar%C4%B1m/rov/README.md)
+[⬅️ Komuta Merkezine Dön](file:///c:/github%20repolar%C4%B1m/rov/README.md)

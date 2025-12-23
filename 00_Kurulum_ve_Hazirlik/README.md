@@ -1,53 +1,41 @@
-# 🛠️ Modül 00: Kurulum ve Hazırlık
+# 🛠️ STRATEJİK HAZIRLIK: SİSTEM KURULUMU
 
-Bu modül, ROV projesinin yazılımsal temelini atmak için gerekli olan tüm kurulum adımlarını içerir.
+> [!NOTE]
+> Bu modül, ROV platformunun yazılımsal temel taşıdır. Sistem stabilitesi için yönergelerin eksiksiz uygulanması kritiktir.
 
-## 1. Sistem Güncelleme ve Temel Araçlar
+## 🛰️ Çevre Mimarisi
 
-Raspberry Pi terminaline aşağıdaki komutu yazarak sisteminizi güncelleyin:
+Aşağıdaki şema, yazılım katmanlarının izolasyonunu ve bağımlılık hiyerarşisini gösterir.
 
+```mermaid
+graph TD
+    A["🐳 OS: Raspberry Pi OS (Bullseye/Bookworm)"] --> B["🐍 Python Runtime (3.10+)"]
+    B --> C["📦 VENV: rov-venv (Isolasyon)"]
+    C --> D["📷 Picamera2 / OpenCV"]
+    C --> E["🧠 TensorFlow Lite Runtime"]
+    C --> F["🔌 PySerial (UART Link)"]
+    
+    style A fill:#003366,stroke:#00ccff,stroke-width:2px,color:#fff
+    style C fill:#660000,stroke:#ff3300,stroke-width:2px,color:#fff
+```
+
+## 🛠️ Operasyonel Adımlar
+
+### 1. Sistem Güncelleme ve Çekirdek Araçlar
 ```bash
 sudo apt update && sudo apt upgrade -y
+sudo apt install arduino python3-venv libatlas-base-dev -y
 ```
 
-## 2. Arduino IDE ve Deneyap Kart Kurulumu
-
-Deneyap Kartı motor sürücü olarak kullanabilmek için Arduino IDE kurulumu gereklidir.
-
+### 2. İzolasyon Protokolü (VENV)
 ```bash
-sudo apt install arduino -y
-```
-
-### Deneyap Kart Tanımını Ekleme:
-1. Arduino IDE > `File > Preferences` menüsüne gidin.
-2. **Additional Board Manager URLs** alanına şunu ekleyin:
-   `https://raw.githubusercontent.com/deneyapkart/deneyapkart-arduino-core/master/package_deneyapkart_index.json`
-3. `Tools > Board > Boards Manager` menüsünden **Deneyap** aratın ve yükleyin.
-
-## 3. Python Sanal Ortam (venv) Yapılandırması
-
-Görüntü işleme ve TensorFlow kütüphanelerinin sistem geneline zarar vermemesi için sanal ortam kullanılması önerilir.
-
-```bash
-# Proje dizinine gidin
-mkdir -p ~/rov-project && cd ~/rov-project
-
-# Sanal ortam oluşturun
+cd ~/rov-project
 python3 -m venv rov-venv
-
-# Aktif edin
 source rov-venv/bin/activate
-
-# Gerekli paketleri kurun
 pip install --upgrade pip setuptools wheel
-pip install opencv-python numpy pyserial tensorflow
+pip install opencv-python numpy pyserial tflite-runtime
 ```
 
 ---
 
-> [!IMPORTANT]
-> Projenin devamında kameranın aktif olması için `sudo raspi-config` menüsünden **Interface Options > Legacy Camera** seçeneğinin etkin olduğundan emin olun (kullandığınız Pi modeline göre değişebilir).
-
----
-
-[⬅️ Ana Sayfaya Dön](file:///c:/github%20repolar%C4%B1m/rov/README.md)
+[⬅️ Komuta Merkezine Dön](file:///c:/github%20repolar%C4%B1m/rov/README.md)

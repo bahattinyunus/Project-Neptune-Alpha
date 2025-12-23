@@ -1,28 +1,30 @@
-# 🔌 Modül 01: Temel Donanım Kontrol
+# 🔌 AKTÜATÖR VE SENSÖR KATMANI
 
-Bu modül, ROV'un fiziksel bileşenlerini (motorlar, sensörler) nasıl kontrol edeceğinizi açıklar.
+> [!IMPORTANT]
+> Gerçek zamanlı veri akışı ve motor stabilizasyonu için Deneyap Kart (ESP32) üzerinde çalışan 'firmware' katmanıdır.
 
-## İçerik ve Kodlar
+## 🕹️ Donanım Kontrol Akışı
 
-Bu modülde yer alan temel kodlar şunlardır:
+```mermaid
+sequenceDiagram
+    participant Pi as Raspberry Pi (Master)
+    participant DK as Deneyap Kart (Slave)
+    participant M as Motor Cluster (8x)
+    participant S as Sensors (IMU/Sonic)
 
-### 🎮 Manuel Kontrol
-- `Manuel_Yazilim_esp32_8motor_joystick_kontrol.ino`: 8 motorlu ROV sisteminin joystick ile kontrolü için ESP32 kodu.
-- `deneyap_modlar_manuel-joystick-kontrol-robotu-esp32.ino`: Deneyap kartı için alternatif manuel sürüş modları.
+    Pi->>DK: UART Command (Pitch, Roll, Yaw, Power)
+    Note over DK: PID Calculation
+    DK->>M: PWM Signal Generation
+    S->>DK: Real-time Data (Telemetry)
+    DK-->>Pi: Status Feedback (ACK/Data)
+```
 
-### 📏 Sensör Okuma
-- `Haberlesme_Deneyap_Kodu_ultrasonik-mesafe-sensoru-okuma`: Ultrasonik sensörden veri alan Deneyap kodu.
-- `Haberlesme_Python_Kodu_ultrasonik-mesafe-sensoru-okuma`: Sensör verilerini Python tarafında işleyen kod.
+## 📂 Dosya Envanteri
+
+- **[manuel_kontrol_8motor.ino](file:///c:/github%20repolar%C4%B1m/rov/01_Temel_Donanim_Kontrol/manuel_kontrol_8motor.ino):** Ana kontrol yazılımı.
+- **[pid_dengeleme_imu.ino](file:///c:/github%20repolar%C4%B1m/rov/01_Temel_Donanim_Kontrol/pid_dengeleme_imu.ino):** IMU destekli otopilot dengeleme.
+- **[haberlesme_deneyap_ultrasonik.ino](file:///c:/github%20repolar%C4%B1m/rov/01_Temel_Donanim_Kontrol/haberlesme_deneyap_ultrasonik.ino):** Engel algılama protokolü.
 
 ---
 
-## 🛠️ Devre Şeması ve Bağlantılar
-
-*Not: Detaylı bağlantı şemaları yakında eklenecektir.*
-
-1. **Motorlar:** PWM pinleri üzerinden sürücülere bağlanır.
-2. **Sensörler:** I2C veya Digital pinler üzerinden Deneyap Kart'a bağlanır.
-
----
-
-[⬅️ Ana Sayfaya Dön](file:///c:/github%20repolar%C4%B1m/rov/README.md)
+[⬅️ Komuta Merkezine Dön](file:///c:/github%20repolar%C4%B1m/rov/README.md)
