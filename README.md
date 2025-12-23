@@ -1,85 +1,54 @@
-# 🚀 ROV Projesi – Raspberry Pi  Kurulumu
+# 🌊 ROV Eğitim Serisi: Raspberry Pi & Deneyap Akademi
 
+![ROV Banner](https://img.shields.io/badge/Project-ROV_Training-blue?style=for-the-badge&logo=raspberry-pi)
+![Status](https://img.shields.io/badge/Status-In_Progress-orange?style=for-the-badge)
+![Target](https://img.shields.io/badge/Target-Robotics_Enthusiasts-green?style=for-the-badge)
 
-## 🛠️ 1. Arduino IDE Kurulumu (Raspberry Pi)
-
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install arduino -y
-```
-## 🗃️ 2. Deneyap Kart Tanımını Ekleme
-
-Arduino IDE > `File > Preferences` menüsüne gidin.
-
-**Additional Board Manager URLs** alanına aşağıdaki linki yapıştırın:
-
-```
-https://raw.githubusercontent.com/deneyapkart/deneyapkart-arduino-core/master/package_deneyapkart_index.json
-```
+Bu depo, bir Sualtı Gözlem Aracı (ROV) geliştirmek için gereken tüm yazılımsal ve donanımsal adımları içeren kapsamlı bir eğitim serisidir. Raspberry Pi ana kontrolcü ve Deneyap Kart motor sürücü katmanı olarak kullanılmıştır.
 
 ---
 
-## 🛋️ 3. Deneyap Kart'ı Kurma
+## 🗺️ Eğitim Yol Haritası
 
-1. Tools > Board > Boards Manager menüsüne girin
-2. "Deneyap" aratın
-3. "Deneyap Kart" paketini seçin ve **Install** butonuna tıklayın
+Aşağıdaki modülleri sırasıyla takip ederek kendi ROV sisteminizi kurabilir ve yapay zeka ile güçlendirebilirsiniz.
 
-> Kurulumdan sonra Tools > Board menüsünden kullandığınız kart modelini seçin:
->
-> - Deneyap Kart v2
-> - Deneyap Mini
-> - Deneyap Geliştirme Kartı
+### 🛠️ [Modül 00: Kurulum ve Hazırlık](file:///c:/github%20repolar%C4%B1m/rov/00_Kurulum_ve_Hazirlik)
+- Raspberry Pi işletim sistemi kurulumu.
+- Arduino IDE ve Deneyap Kart paket tanımları.
+- Python sanal ortam (venv) yapılandırması.
+
+### 🔌 [Modül 01: Temel Donanım Kontrol](file:///c:/github%20repolar%C4%B1m/rov/01_Temel_Donanim_Kontrol)
+- Deneyap Kart ile motor sürücü kontrolü.
+- Sensör verilerinin (Mesafe, IMU vb.) okunması.
+- Manuel kontrol (Joystick) algoritmaları.
+
+### 👁️ [Modül 02: Görüntü İşleme ve AI](file:///c:/github%20repolar%C4%B1m/rov/02_Goruntu_Isleme_ve_AI)
+- OpenCV ile nesne ve çizgi tespiti.
+- TensorFlow Lite modellerinin Raspberry Pi üzerinde çalıştırılması.
+- Şekil tanıma algoritmaları.
+
+### 🎯 [Modül 03: Görev Algoritmaları](file:///c:/github%20repolar%C4%B1m/rov/03_Gorev_Algoritmalari)
+- PID Kontrol sistemleri.
+- "Kayıp Hazine" otonom arama görevi.
+- Haritalama ve mesafe takibi.
+
+### ⚓ [Modül 04: Final Entegrasyon](file:///c:/github%20repolar%C4%B1m/rov/04_Final_Entegrasyon)
+- Tüm sistemlerin birleşimi.
+- Tam fonksiyonel otonom/manuel ROV kontrol kodu.
 
 ---
 
-## 🤜 7. ESP32 + Servo Kurulumu
+## 🚀 Başlangıç
 
+Eğitime başlamak için [Modül 00](file:///c:/github%20repolar%C4%B1m/rov/00_Kurulum_ve_Hazirlik) dizinine gidin ve kurulum talimatlarını takip edin.
 
-### ESP32 Kart Kurulumu:
+---
 
-- Tools > Board > Boards Manager > "esp32" ara
+## 🤝 Katkıda Bulunma
 
+Bu proje bir eğitim materyalidir. Geliştirmeleriniz veya hata düzeltmeleriniz için Pull Request gönderebilirsiniz.
 
-### ESP32Servo Kütüphanesi:
+---
 
-- Sketch > Include Library > Manage Libraries...
-- "ESP32Servo" arat ve yükle
-
-Bu projenin çalışması için aşağıdaki Python paketlerinin kurulması gerekmektedir:
-
-- picamera2
-- opencv-python
-- numpy
-- pyserial
-sudo apt install python3 python3-pip -y
-
-sudo apt install libatlas-base-dev libjpeg-dev libtiff5-dev libjasper-dev libpng-dev -y
-sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
-sudo apt install libxvidcore-dev libx264-dev -y
-sudo apt install python3-dev python3-numpy -y
-sudo apt install python3-numpy python3-serial python3-opencv
-
-sudo apt install -y python3-picamera2
-
-
-# - tensorflow
-Terminalde şöyle yap:
-
-```bash
-mkdir -p ~/rov-project
-cd ~/rov-project
-
-SANAL ORTAM OLUŞTUR
-python3 -m venv rov-venv
-
-
-SANAL ORTAMI AKTİF ET
-source rov-venv/bin/activate
-
-
-pip install --upgrade pip setuptools wheel
-pip install tensorflow
-SANAL ORTAMDAN ÇIK
-deactivate
-.
+> [!TIP]
+> **Proje Notu:** Bu projede kullanılan teknikler, sualtı robotik yarışmaları (TEKNOFEST vb.) için temel teşkil etmektedir.
