@@ -179,3 +179,24 @@ Bu proje bir açık kaynak eğitim doktrini olup, topluluk katkılarına açıkt
 ---
 
 [Geliştirici Dokümantasyonu](ARCHITECTURE.md) | [Arşivleri İncele](_ARCHIVE/) | [Proje Web Sitesi](#)
+
+
+
+
+---
+
+<div align="center">
+
+### ⚡ [ SYSTEM ARCHITECT CORE ] ⚡
+
+**"Simplicity is the ultimate sophistication, precision is the only standard."**
+
+`DEVELOPER` | `ARCHITECT` | `STRATEGIST`
+
+[![GitHub](https://img.shields.io/badge/IDENTITY-bahattinyunus-181717?style=for-the-badge&logo=github)](https://github.com/bahattinyunus)
+[![LinkedIn](https://img.shields.io/badge/CONNECT-Bahattin%20Yunus%20Çetin-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/bahattinyunus/)
+
+> **"Mükemmellik, eklenecek bir şey kalmadığında değil, çıkarılacak bir şey kalmadığında elde edilir."**
+> — *Bahattin Yunus Çetin*
+
+
